@@ -1,0 +1,21 @@
+package pac;
+
+import javax.swing.*;
+
+public class App {
+    private JPanel myJPanel;
+    private JLabel myLable;
+
+    void go(){
+        JFrame frame = new JFrame("App");
+        frame.setContentPane(myJPanel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.setSize(600,300);
+        frame.setBounds(700,200,600,450);
+        myLable.setIcon(new ImageIcon("D:\\dgr.gif"));
+        frame.setVisible(true);
+    }
+    public static void main(String[] args) {
+        new App().go();
+    }
+}
