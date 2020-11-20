@@ -1,0 +1,47 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+public class App {
+    private JPanel myJPanel = new JPanel();
+    private JLabel mouse = new JLabel();
+    private JLabel bg = new JLabel();
+    private JLabel fenshu = new JLabel();
+    int n = 0;
+    App(){
+        mouse.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                mouse.setBounds((int)(Math.random()*10%10*40),(int)(Math.random()*10%10*40),150,150);
+                n++;
+                fenshu.setText("分数："+String.valueOf(n));
+            }
+        });
+    }
+    void go(){
+        myJPanel.setLayout(null);
+        fenshu.setBounds(100,0,200,50);
+        fenshu.setText("分数："+String.valueOf(n));
+        fenshu.setFont(new Font("Arlit",Font.BOLD,40));
+        fenshu.setForeground(Color.red);
+        java.net.URL img_tbs = App.class.getResource("/tuboshu.gif");
+        java.net.URL img_bg = App.class.getResource("/background.jpg");
+        mouse.setIcon(new ImageIcon(img_tbs));
+        mouse.setBounds(100,100,150,150);
+        bg.setIcon(new ImageIcon(img_bg));
+        bg.setBounds(0,50,800,596);
+        myJPanel.add(fenshu);
+        myJPanel.add(mouse);
+        myJPanel.add(bg);
+        JFrame frame = new JFrame("打地鼠游戏");
+        frame.setContentPane(myJPanel);
+        frame.setBounds(200,200,800,700);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }
+    public static void main(String[] args) {
+        new App().go();
+    }
+}
