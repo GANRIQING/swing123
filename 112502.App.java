@@ -25,9 +25,9 @@ public class App {
                 super.keyPressed(e);
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     if(textArea_A.getText().equals("远敬！")){
-                        textArea_B.setText("回答正确！");
+                        textArea_B.setText("回答正确！\n");
                     }else {
-                        textArea_B.setText("丑拒！");
+                        textArea_B.append("丑拒！\n");
                     }
                 }
             }
